@@ -35,11 +35,11 @@ Depois de criado, precisamos ativá-lo com o seguinte comando para que o termina
 
 Por que isso é fundamental: ao registrar as versões em `requirements.txt`, garantimos que todos os analistas usem o mesmo conjunto de bibliotecas para Excel, gráficos e análises estatísticas.
 
-Bibliotecas essenciais para este treino:
-- Manipulação de dados: `pandas`, `numpy`
-- Excel: `openpyxl` (leitura/escrita .xlsx), `pyarrow` (mais rápido p/ CSV/Parquet)
-- Gráficos: `matplotlib`, `seaborn`, `plotly`
-- Estatística / ML leve: `scikit-learn`, `statsmodels`
+Bibliotecas essenciais para este treino (o que fazem e docs oficiais):
+- Manipulação de dados: `pandas` (tabelas e ETL leve — [docs](https://pandas.pydata.org)), `numpy` (cálculo vetorial/matriz — [docs](https://numpy.org))
+- Excel e arquivos: `openpyxl` (ler/escrever .xlsx — [docs](https://openpyxl.readthedocs.io)), `pyarrow` (I/O rápido para CSV/Parquet — [docs](https://arrow.apache.org/docs/python/))
+- Gráficos: `matplotlib` (gráfico base — [docs](https://matplotlib.org)), `seaborn` (estatística visual simplificada — [docs](https://seaborn.pydata.org)), `plotly` (gráficos interativos — [docs](https://plotly.com/python/))
+- Estatística / ML leve: `scikit-learn` (modelos clássicos e métricas — [docs](https://scikit-learn.org/stable/)), `statsmodels` (testes e modelos estatísticos — [docs](https://www.statsmodels.org/stable/))
 
 **Opção A: Prompt curto para a IA**
 ```
