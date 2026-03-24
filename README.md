@@ -1,6 +1,21 @@
 # Formação Vibe Coding PCG
 
-## Passo 0: Instalar Python e plugins essenciais
+## Passo 1: Instalar Python e plugins essenciais
+
+Checklist rápido:
+- Instalar **Python 3.12+** marcando "Add python.exe to PATH".
+- Instalar **VS Code** (ou abrir o seu) e adicionar as extensões:
+  - **Python** (Microsoft)
+  - **Jupyter**
+  - **Pylance** ou **IntelliCode**
+  - (Opcional) **GitHub Copilot Chat**
+
+Teste a instalação do Python no terminal:
+```bash
+python --version
+pip --version
+```
+
 - Baixe e instale o **Python 3.12+** marcando a opção "Add python.exe to PATH". (Download: https://www.python.org/downloads/)
 - Instale o **Visual Studio Code** (ou abra o que já usa) e adicione as extensões: 
   - **Python** (Microsoft) – suporte à linguagem e depuração.
@@ -8,7 +23,7 @@
   - **Pylance** ou **IntelliCode** – autocompletar rápido.
   - (Opcional) **GitHub Copilot Chat** – para pedir passos por texto.
 
-## Passo 1: Criar e Ativar o Ambiente Virtual
+## Passo 2: Criar e Ativar o Ambiente Virtual
 
 Por que isso é fundamental: o ambiente virtual isola as bibliotecas deste treino, evita conflitos com outros projetos e facilita gerar o `requirements.txt` para todos terem as mesmas versões.
 
@@ -31,7 +46,7 @@ Depois de criado, precisamos ativá-lo com o seguinte comando para que o termina
 .venv\Scripts\activate
 ```
 
-## Passo 2: Instalar pacotes e gerar o requirements.txt
+## Passo 3: Instalar pacotes e gerar o requirements.txt
 
 Por que isso é fundamental: ao registrar as versões em `requirements.txt`, garantimos que todos os analistas usem o mesmo conjunto de bibliotecas para Excel, gráficos e análises estatísticas.
 
@@ -65,7 +80,7 @@ No ambiente virtual ativo, instale pandas, numpy, openpyxl, pyarrow, matplotlib,
 
 **Opção B: Comando direto no terminal**
 ```bash
-pip install pandas numpy openpyxl pyarrow matplotlib seaborn plotly scikit-learn statsmodels
+pip install pandas numpy openpyxl pyarrow matplotlib seaborn plotly
 pip freeze > requirements.txt
 ```
 
@@ -78,7 +93,7 @@ pip install -r requirements.txt
 ```
 Isso garante que todos usem exatamente as mesmas versões listadas no arquivo.
 
-## Passo 3: Criar o notebook Jupyter para a análise
+## Passo 4: Criar o notebook Jupyter para a análise
 
 Por que isso é fundamental: o notebook é onde vamos fazer perguntas sobre os dados (Excel/CSV) e visualizar resultados rapidamente.
 
