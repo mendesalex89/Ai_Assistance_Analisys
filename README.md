@@ -77,3 +77,32 @@ Se já existe um `requirements.txt`, basta instalar em um novo ambiente com:
 pip install -r requirements.txt
 ```
 Isso garante que todos usem exatamente as mesmas versões listadas no arquivo.
+
+## Passo 3: Criar o notebook Jupyter para a análise
+
+Por que isso é fundamental: o notebook é onde vamos fazer perguntas sobre os dados (Excel/CSV) e visualizar resultados rapidamente.
+
+**Opção A: Prompt curto para a IA**
+```
+Crie um notebook Jupyter chamado 01_exploracao.ipynb nesta pasta, usando o ambiente virtual .venv, e abra-o para eu começar a escrever células.
+```
+
+**Opção B: Fazer direto no VS Code / terminal**
+1) Ative o ambiente: `.venv\Scripts\activate`
+2) No terminal: `code .` (abre a pasta no VS Code)  
+   - No VS Code, clique em “New File” → escolha “Jupyter Notebook”, salve como `01_exploracao.ipynb`.
+   - Alternativa via terminal: `python -m jupyter lab` e, no navegador, `File > New Notebook` (Python 3) e salve como `01_exploracao.ipynb`.
+
+### Abrir o Jupyter no navegador
+
+**Prompt para a IA abrir no browser**
+```
+Ative o .venv e abra o Jupyter Lab no navegador para mim.
+```
+
+**Manual (sem IA)**
+```bash
+.venv\Scripts\activate
+python -m jupyter lab
+```
+Depois de rodar, abra o link que aparece no terminal (geralmente http://localhost:8888/lab). Feche o terminal para encerrar o servidor quando terminar.
