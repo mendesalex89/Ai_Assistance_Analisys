@@ -35,11 +35,28 @@ Depois de criado, precisamos ativá-lo com o seguinte comando para que o termina
 
 Por que isso é fundamental: ao registrar as versões em `requirements.txt`, garantimos que todos os analistas usem o mesmo conjunto de bibliotecas para Excel, gráficos e análises estatísticas.
 
-Bibliotecas essenciais para este treino (o que fazem e docs oficiais):
-- Manipulação de dados: `pandas` (tabelas e ETL leve — [docs](https://pandas.pydata.org)), `numpy` (cálculo vetorial/matriz — [docs](https://numpy.org))
-- Excel e arquivos: `openpyxl` (ler/escrever .xlsx — [docs](https://openpyxl.readthedocs.io)), `pyarrow` (I/O rápido para CSV/Parquet — [docs](https://arrow.apache.org/docs/python/))
-- Gráficos: `matplotlib` (gráfico base — [docs](https://matplotlib.org)), `seaborn` (estatística visual simplificada — [docs](https://seaborn.pydata.org)), `plotly` (gráficos interativos — [docs](https://plotly.com/python/))
-- Estatística / ML leve: `scikit-learn` (modelos clássicos e métricas — [docs](https://scikit-learn.org/stable/)), `statsmodels` (testes e modelos estatísticos — [docs](https://www.statsmodels.org/stable/))
+Bibliotecas essenciais para este treino (descrição e docs):
+- `pandas`  
+  - Tabelas, limpeza e junções de dados tabulares.  
+  - Docs: https://pandas.pydata.org
+- `numpy`  
+  - Cálculo vetorial/matriz; base numérica usada por outras libs.  
+  - Docs: https://numpy.org
+- `openpyxl`  
+  - Ler e escrever arquivos `.xlsx` sem precisar do Excel instalado.  
+  - Docs: https://openpyxl.readthedocs.io
+- `pyarrow`  
+  - I/O rápido para CSV/Parquet e integração com pandas.  
+  - Docs: https://arrow.apache.org/docs/python/
+- `matplotlib`  
+  - Biblioteca base de gráficos 2D; controle fino de eixos e figuras.  
+  - Docs: https://matplotlib.org
+- `seaborn`  
+  - Camada de alto nível sobre matplotlib para gráficos estatísticos com bom padrão visual.  
+  - Docs: https://seaborn.pydata.org
+- `plotly`  
+  - Gráficos interativos (zoom, hover) para compartilhar em navegador ou notebooks.  
+  - Docs: https://plotly.com/python/
 
 **Opção A: Prompt curto para a IA**
 ```
