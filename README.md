@@ -30,3 +30,33 @@ Depois de criado, precisamos ativá-lo com o seguinte comando para que o termina
 ```bash
 .venv\Scripts\activate
 ```
+
+## Passo 2: Instalar pacotes e gerar o requirements.txt
+
+Por que isso é fundamental: ao registrar as versões em `requirements.txt`, garantimos que todos os analistas usem o mesmo conjunto de bibliotecas para Excel, gráficos e análises estatísticas.
+
+Bibliotecas essenciais para este treino:
+- Manipulação de dados: `pandas`, `numpy`
+- Excel: `openpyxl` (leitura/escrita .xlsx), `pyarrow` (mais rápido p/ CSV/Parquet)
+- Gráficos: `matplotlib`, `seaborn`, `plotly`
+- Estatística / ML leve: `scikit-learn`, `statsmodels`
+
+**Opção A: Prompt curto para a IA**
+```
+No ambiente virtual ativo, instale pandas, numpy, openpyxl, pyarrow, matplotlib, seaborn, plotly. Depois gere um requirements.txt com as versões instaladas.
+```
+
+**Opção B: Comando direto no terminal**
+```bash
+pip install pandas numpy openpyxl pyarrow matplotlib seaborn plotly scikit-learn statsmodels
+pip freeze > requirements.txt
+```
+
+> Dica: sempre rode `pip install` com o ambiente virtual ativado (`.venv\Scripts\activate`). Se não ativar, os pacotes irão para o Python global.
+
+### Reinstalar tudo a partir do requirements.txt
+Se já existe um `requirements.txt`, basta instalar em um novo ambiente com:
+```bash
+pip install -r requirements.txt
+```
+Isso garante que todos usem exatamente as mesmas versões listadas no arquivo.
