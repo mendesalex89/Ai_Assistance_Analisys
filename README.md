@@ -5,7 +5,7 @@ Bem-vindo à **Formação Vibe Coding: Do Excel ao Python**! 🚀
 Este treinamento interativo é o seu **guia de transição** para modernizar a forma de lidar com tabelas (como o seu *Mapa diário.xlsx*). O objetivo não é programar automações complexas do zero, mas sim ensinar a usar a **Inteligência Artificial** (Copilot/ChatGPT) para gerar e correr o código de forma simples e imediata (Vibe Coding).
 
 ⚠️ **O Verdadeiro Foco (Zero Automação Mágica)**: 
-A inteligência artificial programa; si tem de fazer o trabalho analítico! Este guia dá-lhe as bases sólidas (as famosas "Regras de Ouro") para saber organizar os prompts e pedir informações à IA com eficácia. A partir daí, tornar-se um especialista na ferramenta exigirá **muita exploração individual, treino diário e experiência profunda no terreno** com as suas próprias folhas de Excel.
+A inteligência artificial programa; cabe-lhe a si fazer o trabalho analítico! Este guia dá-lhe as bases sólidas (as famosas "Regras de Ouro") para saber organizar os prompts e pedir informações à IA com eficácia. A partir daí, tornar-se um especialista na ferramenta exigirá **muita exploração individual, treino diário e experiência profunda no terreno** com as suas próprias folhas de Excel.
 
 ### 🎯 **O que vamos cobrar nesta primeira etapa prática?**
 Durante esta jornada inicial, vai aprender a:
@@ -14,7 +14,6 @@ Durante esta jornada inicial, vai aprender a:
 - 📊 **Construir Visualizações em Código**: Substituir os filtros, tabelas dinâmicas e fórmulas de Margens do Excel, por uma simples ordem de texto em linguagem natural fornecida à IA, gerando Dashboards na hora.
 
 A jornada para a **Análise Interativa com IA** começa aqui. Teste, explore as respostas do robô e descubra o poder dos dados!
-
 
 ---
 ## Passo 1: Instalar Python e plugins essenciais
@@ -171,4 +170,41 @@ df.plot(kind="bar", x="Dia", y="Faturação", figsize=(10,4), title="Faturação
 
 
 
+
+
+
+## Passo 6: Expandir para um Dashboard Interativo (Plotly + Dash)
+
+Por que isso é fundamental: depois de limpar os dados e criar os primeiros gráficos estáticos num Notebook, o próximo grande salto de maturidade analítica é partilhar esses resultados de forma apelativa. O **Dash** (junto com o motor visual **Plotly**) permite criar aplicações web poderosas e altamente customizáveis, em que os diretores podem cruzar filtros, e interagir clicando nas barras ou nas margens. 
+
+Aqui, em vez de codificar bloco a bloco, a forma mais rentável de trabalhar (Vibe Coding) é fornecer à Inteligência Artificial um **Briefing (Prompt)** muito cirúrgico com a estrutura exata do nosso Excel.
+
+**Prompt Detalhado para criar o Dashboard (copie e cole no ChatGPT/Copilot):**
+
+> Usa a linguagem Python e as bibliotecas `dash` e `plotly` para criar uma aplicação web chamada 'dashboard.py'. Usa tema escuro.  
+> 
+> **Requisitos do Carregamento de Dados:**
+> 1. Carrega o ficheiro local `'Cópia de Mapa diário.xlsx'` do Microsoft Excel. Ignora as primeiras 6 linhas (`skiprows=6`).
+> 2. Pega apenas nas seguintes colunas pelo índice `iloc`: 
+>    - **Coluna 0**: 'Dia'
+>    - **Coluna 1**: 'Semana'
+>    - **Coluna 5**: 'Faturamento 25'
+>    - **Coluna 16**: 'Margem 25'
+>    - **Coluna 17**: 'Margem 26'
+> 3. Converte essas métricas usando `pd.to_numeric(errors='coerce')` para limpar quaisquer aspas em branco. O 'Dia' mantém-se como string e descarta os campos 'Dia' vazios (`dropna(subset=['Dia'])`).  
+> 4. Transforma as Margens numa percentagem matemática: (Margem 25 / Faturamento 25).
+>     
+> **Requisitos da Interface e Interatividade:**
+> 5. Configura no topo 1 Título grande centrado: "Dashboard Financeiro Diário". Usar letra Arial ou Roboto e cores Neon.
+> 6. Um `dcc.Dropdown` (filtros Múltiplos) para a pessoa poder escolher as Semanas e a página atualizar instantaneamente (`@app.callback`).
+> 7. Abaixo cria 2 gráficos grandes lado a lado (estilo "flexbox" com 50% largura cada):
+>    - **Gráfico 1 (Esquerda):** Gráfico de Barras do 'Faturamento 25' distribuído por 'Dia'. Barras de cor azul petróleo (`px.bar`, template='plotly_dark').
+>    - **Gráfico 2 (Direita):** Gráfico de Linhas comparando a evolução a 2 anos da 'Margem 25' e 'Margem 26' também ao longo do 'Dia'.  
+> 8. Certifica-te que incluis o final `if __name__ == '__main__': app.run_server(debug=True)`. Gera apenas o bloco de código limpo.
+
+---
+**Como Testar esta Magia no seu Computador:**
+1. No seu terminal com o ambiente ativado (`.venv\Scripts\activate`), garanta as instalações: `pip install dash pandas openpyxl`
+2. Num ficheiro novo chamado `dashboard.py` (ou dentro do Jupyter), cole a resposta gigante do Chat.
+3. No terminal corra `python dashboard.py` e abra o endereço de internet que surgir (geralmente será algo como `http://127.0.0.1:8050`). Divirta-se a olhar para os seus dados a ganharem vida!
 
