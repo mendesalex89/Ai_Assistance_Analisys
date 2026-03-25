@@ -1,5 +1,22 @@
 # Formação Vibe Coding PCG
 
+Bem-vindo à **Formação Vibe Coding: Do Excel ao Python**! 🚀
+
+Este treinamento interativo é o seu **guia de transição** para modernizar a forma de lidar com tabelas (como o seu *Mapa diário.xlsx*). O objetivo não é programar automações complexas do zero, mas sim ensinar a usar a **Inteligência Artificial** (Copilot/ChatGPT) para gerar e correr o código de forma simples e imediata (Vibe Coding).
+
+⚠️ **O Verdadeiro Foco (Zero Automação Mágica)**: 
+A inteligência artificial programa; si tem de fazer o trabalho analítico! Este guia dá-lhe as bases sólidas (as famosas "Regras de Ouro") para saber organizar os prompts e pedir informações à IA com eficácia. A partir daí, tornar-se um especialista na ferramenta exigirá **muita exploração individual, treino diário e experiência profunda no terreno** com as suas próprias folhas de Excel.
+
+### 🎯 **O que vamos cobrar nesta primeira etapa prática?**
+Durante esta jornada inicial, vai aprender a:
+- 🐍 **Preparar o Ambiente**: Configurar as ferramentas fundamentais (Python, VS Code, e Jupyter) em minutos.
+- 🤖 **Interagir com IA Blindada**: Como criar _prompts_ bem construídos para o Chat entender a estrutura desarrumada e colunas escondidas das suas folhas de Excel.
+- 📊 **Construir Visualizações em Código**: Substituir os filtros, tabelas dinâmicas e fórmulas de Margens do Excel, por uma simples ordem de texto em linguagem natural fornecida à IA, gerando Dashboards na hora.
+
+A jornada para a **Análise Interativa com IA** começa aqui. Teste, explore as respostas do robô e descubra o poder dos dados!
+
+
+---
 ## Passo 1: Instalar Python e plugins essenciais
 
 Checklist rápido:
@@ -121,3 +138,37 @@ Ative o .venv e abra o Jupyter Lab no navegador para mim.
 python -m jupyter lab
 ```
 Depois de rodar, abra o link que aparece no terminal (geralmente http://localhost:8888/lab). Feche o terminal para encerrar o servidor quando terminar.
+
+## Passo 5: Carregar o Excel no notebook e fazer a primeira análise
+
+Por que isso é fundamental: confirma que o ambiente está funcionando e mostra a equivalência entre o que fazíamos no Excel e no Python.
+
+**Prepare o arquivo**  
+Coloque a planilha de exemplo em `dados/exemplo.xlsx` (pode usar a cópia interna “Mapa diário”). Mantenha o repositório interno.
+
+**Opção A: Prompt curto para a IA**
+```
+No notebook 01_exploracao.ipynb, carregue o arquivo dados/exemplo.xlsx na primeira aba, mostre as 5 primeiras linhas e faça um gráfico de barras com a coluna de faturação por dia.
+```
+
+**Opção B: Fazer direto no notebook**
+1) Abra o `01_exploracao.ipynb` (Passo 4).  
+2) Rode estas células iniciais:
+```python
+import pandas as pd
+
+caminho = "dados/exemplo.xlsx"  # ajuste se usar outro nome
+df = pd.read_excel(caminho, sheet_name=0)
+
+df.head()
+```
+3) Gráfico simples (substitua `Dia` e `Faturação` pelos nomes reais das colunas):
+```python
+df.plot(kind="bar", x="Dia", y="Faturação", figsize=(10,4), title="Faturação por dia")
+```
+4) Salve o notebook após testar.
+
+
+
+
+
