@@ -16,7 +16,30 @@ Durante esta jornada inicial, vai aprender a:
 A jornada para a **Análise Interativa com IA** começa aqui. Teste, explore as respostas do robô e descubra o poder dos dados!
 
 ---
-## Passo 1: Instalar Python e plugins essenciais
+## Passo 1: Segurança e "Mega Prompt" de Privacidade (Vibe Guard)
+
+A segurança dos dados é o pilar mais importante do **Vibe Coding**. Antes de sequer começar a conversar com a IA sobre o seu projeto ou instalar ferramentas, precisamos garantir que ela saiba que não pode "ver" dados sensíveis (nomes de clientes, CPFs, faturamentos reais sem contexto, etc).
+
+**O Conceito de Ouro: Blindagem de Dados**
+Quando usamos ChatGPT, Copilot ou Claude, as conversas podem ser usadas para treino (dependendo do plano e configuração). Nunca cole informações reais do seu Excel sem anonimizar ou trocar os valores primeiro.
+
+### 🛡️ Mega Prompt de Sensibilização (The Vibe Guard)
+Copie e cole este prompt na sua conversa com a IA *antes* de começar qualquer análise técnica. Ele vai configurar o robô para ser o seu "auditor de segurança".
+
+> **Mega Prompt para Copiar:**
+> "A partir de agora, atua como o meu **Consultor de Segurança de Dados e Especialista em Vibe Coding**. 
+> 
+> **Regras Absolutas:**
+> 1. Antes de me dares qualquer código ou análise, verifica se os dados que eu forneci contêm PII (Personal Identifiable Information) como Nomes, Emails, Moradas ou IDs reais.
+> 2. Se detetares dados sensíveis, EXIGE que eu os substitua por dados fictícios antes de processares.
+> 3. Ajuda-me sempre a 'blindar' a estrutura: gera-me código Python para criar dados fictícios que respeitem os mesmos nomes de colunas do meu Excel original.
+> 4. Prioriza o uso de bibliotecas de proteção (como `faker` ou apenas hashing) quando estivermos a manipular tabelas.
+> 
+> Entendido? Confirma e aguarda pelo meu primeiro esquema de colunas."
+
+Dica: Este prompt transforma a IA de um simples executor num **escudo protetor** das informações da empresa.
+
+## Passo 2: Instalar Python e plugins essenciais
 
 Checklist rápido:
 - Instalar **Python 3.12+** marcando "Add python.exe to PATH".
@@ -39,7 +62,7 @@ pip --version
   - **Pylance** ou **IntelliCode** – autocompletar rápido.
   - (Opcional) **GitHub Copilot Chat** – para pedir passos por texto.
 
-## Passo 2: Criar e Ativar o Ambiente Virtual
+## Passo 3: Criar e Ativar o Ambiente Virtual
 
 Por que isso é fundamental: o ambiente virtual isola as bibliotecas deste treino, evita conflitos com outros projetos e facilita gerar o `requirements.txt` para todos terem as mesmas versões.
 
@@ -62,7 +85,7 @@ Depois de criado, precisamos ativá-lo com o seguinte comando para que o termina
 .venv\Scripts\activate
 ```
 
-## Passo 3: Instalar pacotes e gerar o requirements.txt
+## Passo 4: Instalar pacotes e gerar o requirements.txt
 
 Por que isso é fundamental: ao registrar as versões em `requirements.txt`, garantimos que todos os analistas usem o mesmo conjunto de bibliotecas para Excel, gráficos e análises estatísticas.
 
@@ -109,7 +132,7 @@ pip install -r requirements.txt
 ```
 Isso garante que todos usem exatamente as mesmas versões listadas no arquivo.
 
-## Passo 4: Criar o notebook Jupyter para a análise
+## Passo 5: Criar o notebook Jupyter para a análise
 
 Por que isso é fundamental: o notebook é onde vamos fazer perguntas sobre os dados (Excel/CSV) e visualizar resultados rapidamente.
 
@@ -138,7 +161,7 @@ python -m jupyter lab
 ```
 Depois de rodar, abra o link que aparece no terminal (geralmente http://localhost:8888/lab). Feche o terminal para encerrar o servidor quando terminar.
 
-## Passo 5: Carregar o Excel no notebook e fazer a primeira análise
+## Passo 6: Carregar o Excel no notebook e fazer a primeira análise
 
 Por que isso é fundamental: confirma que o ambiente está funcionando e mostra a equivalência entre o que fazíamos no Excel e no Python.
 
@@ -173,7 +196,7 @@ df.plot(kind="bar", x="Dia", y="Faturação", figsize=(10,4), title="Faturação
 
 
 
-## Passo 6: Expandir para um Dashboard Interativo (Plotly + Dash)
+## Passo 7: Expandir para um Dashboard Interativo (Plotly + Dash)
 
 Por que isso é fundamental: depois de limpar os dados e criar os primeiros gráficos estáticos num Notebook, o próximo grande salto de maturidade analítica é partilhar esses resultados de forma apelativa. O **Dash** (junto com o motor visual **Plotly**) permite criar aplicações web poderosas e altamente customizáveis, em que os diretores podem cruzar filtros, e interagir clicando nas barras ou nas margens. 
 
