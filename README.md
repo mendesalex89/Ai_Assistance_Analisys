@@ -18,7 +18,7 @@ A jornada para a **Análise Interativa com IA** começa aqui. Teste, explore as 
 ---
 ## Passo 1: Segurança e "Mega Prompt" de Privacidade (Vibe Guard)
 
-A segurança dos dados é o pilar mais importante do **Vibe Coding**. Antes de sequer começar a conversar com a IA sobre o seu projeto ou instalar ferramentas, precisamos garantir que ela saiba que não pode "ver" dados sensíveis (nomes de clientes, CPFs, faturamentos reais sem contexto, etc).
+A segurança dos dados é o pilar mais importante do **Vibe Coding**. Antes de sequer começar a conversar com a IA sobre o seu projeto ou instalar ferramentas, precisamos garantir que ela saiba que não pode "ver" dados sensíveis (nomes de clientes, NIFs, faturações reais sem contexto, etc).
 
 **O Conceito de Ouro: Blindagem de Dados**
 Quando usamos ChatGPT, Copilot ou Claude, as conversas podem ser usadas para treino (dependendo do plano e configuração). Nunca cole informações reais do seu Excel sem anonimizar ou trocar os valores primeiro.
@@ -161,7 +161,7 @@ python -m jupyter lab
 ```
 Depois de rodar, abra o link que aparece no terminal (geralmente http://localhost:8888/lab). Feche o terminal para encerrar o servidor quando terminar.
 
-## Passo 6: Carregar o Excel no notebook e fazer a primeira análise
+### Passo 6: Carregar o Excel no notebook e fazer a primeira análise
 
 Por que isso é fundamental: confirma que o ambiente está funcionando e mostra a equivalência entre o que fazíamos no Excel e no Python.
 
@@ -211,17 +211,17 @@ Aqui, em vez de codificar bloco a bloco, a forma mais rentável de trabalhar (Vi
 > 2. Pega apenas nas seguintes colunas pelo índice `iloc`: 
 >    - **Coluna 0**: 'Dia'
 >    - **Coluna 1**: 'Semana'
->    - **Coluna 5**: 'Faturamento 25'
+>    - **Coluna 5**: 'Faturação 25'
 >    - **Coluna 16**: 'Margem 25'
 >    - **Coluna 17**: 'Margem 26'
 > 3. Converte essas métricas usando `pd.to_numeric(errors='coerce')` para limpar quaisquer aspas em branco. O 'Dia' mantém-se como string e descarta os campos 'Dia' vazios (`dropna(subset=['Dia'])`).  
-> 4. Transforma as Margens numa percentagem matemática: (Margem 25 / Faturamento 25).
+> 4. Transforma as Margens numa percentagem matemática: (Margem 25 / Faturação 25).
 >     
 > **Requisitos da Interface e Interatividade:**
 > 5. Configura no topo 1 Título grande centrado: "Dashboard Financeiro Diário". Usar letra Arial ou Roboto e cores Neon.
 > 6. Um `dcc.Dropdown` (filtros Múltiplos) para a pessoa poder escolher as Semanas e a página atualizar instantaneamente (`@app.callback`).
 > 7. Abaixo cria 2 gráficos grandes lado a lado (estilo "flexbox" com 50% largura cada):
->    - **Gráfico 1 (Esquerda):** Gráfico de Barras do 'Faturamento 25' distribuído por 'Dia'. Barras de cor azul petróleo (`px.bar`, template='plotly_dark').
+>    - **Gráfico 1 (Esquerda):** Gráfico de Barras do 'Faturação 25' distribuído por 'Dia'. Barras de cor azul petróleo (`px.bar`, template='plotly_dark').
 >    - **Gráfico 2 (Direita):** Gráfico de Linhas comparando a evolução a 2 anos da 'Margem 25' e 'Margem 26' também ao longo do 'Dia'.  
 > 8. Certifica-te que incluis o final `if __name__ == '__main__': app.run_server(debug=True)`. Gera apenas o bloco de código limpo.
 
