@@ -2,7 +2,7 @@ import streamlit as st
 import re
 import json
 
-st.set_page_config(page_title="Formação Vibe Coding PCG", page_icon="🚀", layout="wide")
+st.set_page_config(page_title="Guia Vibe Coding PCG", page_icon="🚀", layout="wide")
 
 st.markdown("""
 <style>
@@ -90,12 +90,27 @@ REFERENCIA_KEY = "📋 Referência Rápida de Prompts"
 opcoes_menu = ["🏠 Introdução"] + [f"📍 {titulo}" for titulo in passos.keys()] + [REFERENCIA_KEY]
 total_passos = len(passos)
 
-escolha_raw = st.sidebar.radio("Navegação do Treinamento:", opcoes_menu, key="nav_radio")
+# Estado de navegação — usa índice inteiro para evitar conflito com o widget radio
+if "pagina_idx" not in st.session_state:
+    st.session_state["pagina_idx"] = 0
+
+escolha_raw = st.sidebar.radio(
+    "Navegação do Treinamento:",
+    opcoes_menu,
+    index=st.session_state["pagina_idx"]
+)
+
+# Sincronizar cliques manuais na sidebar
+idx_selecionado = opcoes_menu.index(escolha_raw)
+if idx_selecionado != st.session_state["pagina_idx"]:
+    st.session_state["pagina_idx"] = idx_selecionado
 
 # Barra de progresso na sidebar (apenas nos passos)
 if escolha_raw not in ("🏠 Introdução", REFERENCIA_KEY):
-    idx_passo = opcoes_menu.index(escolha_raw)
-    st.sidebar.progress(idx_passo / total_passos, text=f"Progresso: {idx_passo}/{total_passos} passos")
+    st.sidebar.progress(
+        idx_selecionado / total_passos,
+        text=f"Progresso: {idx_selecionado}/{total_passos} passos"
+    )
 
 
 # ── Introdução ──────────────────────────────────────────────────────────────
@@ -121,7 +136,7 @@ if escolha_raw == "🏠 Introdução":
 
     st.markdown("<br>", unsafe_allow_html=True)
     if st.button("🚀 Começar — Ir para o Passo 1", type="primary", use_container_width=True):
-        st.session_state["nav_radio"] = opcoes_menu[1]
+        st.session_state["pagina_idx"] = 1
         st.rerun()
 
 
@@ -138,7 +153,7 @@ elif escolha_raw == REFERENCIA_KEY:
 # ── Passos ───────────────────────────────────────────────────────────────────
 else:
     titulo_real = escolha_raw[2:].strip()
-    idx_atual = opcoes_menu.index(escolha_raw)
+    idx_atual = idx_selecionado
 
     st.markdown(
         f"<h1 style='color:#f8fafc; font-weight: 600;'>{titulo_real}</h1>",
@@ -162,7 +177,7 @@ else:
         if idx_atual > 1:
             label_prev = opcoes_menu[idx_atual - 1][2:].strip()
             if st.button(f"⬅️ {label_prev[:28]}", use_container_width=True):
-                st.session_state["nav_radio"] = opcoes_menu[idx_atual - 1]
+                st.session_state["pagina_idx"] = idx_atual - 1
                 st.rerun()
 
     with col_next:
@@ -170,5 +185,5 @@ else:
         if proximo_idx < len(opcoes_menu):
             label_next = opcoes_menu[proximo_idx][2:].strip()
             if st.button(f"➡️ {label_next[:28]}", type="primary", use_container_width=True):
-                st.session_state["nav_radio"] = opcoes_menu[proximo_idx]
+                st.session_state["pagina_idx"] = proximo_idx
                 st.rerun()

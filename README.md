@@ -1,6 +1,6 @@
-# Formação Vibe Coding PCG
+# Guia Vibe Coding PCG
 
-Bem-vindo à **Formação Vibe Coding: Do Excel ao Python**! 🚀
+Bem-vindo ao **Guia Vibe Coding: Do Excel ao Python**! 🚀
 
 Este treinamento interativo é o seu **guia de transição** para modernizar a forma de lidar com tabelas (como o seu *Mapa diário.xlsx*). O objetivo não é programar automações complexas do zero, mas sim ensinar a usar a **Inteligência Artificial** (Copilot/ChatGPT) para gerar e correr o código de forma simples e imediata (Vibe Coding).
 
