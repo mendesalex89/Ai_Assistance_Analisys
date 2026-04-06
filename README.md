@@ -161,7 +161,7 @@ python -m jupyter lab
 ```
 Depois de rodar, abra o link que aparece no terminal (geralmente http://localhost:8888/lab). Feche o terminal para encerrar o servidor quando terminar.
 
-### Passo 6: Carregar o Excel no notebook e fazer a primeira análise
+## Passo 6: Carregar o Excel no notebook e fazer a primeira análise
 
 Por que isso é fundamental: confirma que o ambiente está funcionando e mostra a equivalência entre o que fazíamos no Excel e no Python.
 
