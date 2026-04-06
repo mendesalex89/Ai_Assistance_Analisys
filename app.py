@@ -97,13 +97,18 @@ if "pagina_idx" not in st.session_state:
 if "scroll_top" not in st.session_state:
     st.session_state["scroll_top"] = False
 
-# Scroll para o topo sempre que navegarmos via botão
-if st.session_state["scroll_top"]:
-    st.session_state["scroll_top"] = False
-    components.html(
-        "<script>window.parent.document.querySelector('.main').scrollTo({top:0,behavior:'instant'});</script>",
-        height=0
-    )
+SCROLL_JS = """<script>
+(function(){
+    function s(){
+        var sels=['[data-testid="stMain"]','.main','[data-testid="stAppViewContainer"]'];
+        sels.forEach(function(q){var e=window.parent.document.querySelector(q);if(e)e.scrollTop=0;});
+        window.parent.scrollTo(0,0);
+    }
+    s();
+    requestAnimationFrame(function(){s();requestAnimationFrame(s);});
+    setTimeout(s,200);setTimeout(s,500);setTimeout(s,900);
+})();
+</script>"""
 
 escolha_raw = st.sidebar.radio(
     "Navegação do Treinamento:",
@@ -126,6 +131,9 @@ if escolha_raw not in ("🏠 Introdução", REFERENCIA_KEY):
 
 # ── Introdução ──────────────────────────────────────────────────────────────
 if escolha_raw == "🏠 Introdução":
+    if st.session_state["scroll_top"]:
+        st.session_state["scroll_top"] = False
+        components.html(SCROLL_JS, height=0)
     st.markdown(introducao)
 
     st.markdown("---")
@@ -154,6 +162,9 @@ if escolha_raw == "🏠 Introdução":
 
 # ── Referência Rápida ────────────────────────────────────────────────────────
 elif escolha_raw == REFERENCIA_KEY:
+    if st.session_state["scroll_top"]:
+        st.session_state["scroll_top"] = False
+        components.html(SCROLL_JS, height=0)
     st.markdown(
         "<h1 style='color:#f8fafc; font-weight: 600;'>📋 Referência Rápida de Prompts</h1>",
         unsafe_allow_html=True
@@ -166,6 +177,10 @@ elif escolha_raw == REFERENCIA_KEY:
 else:
     titulo_real = escolha_raw[2:].strip()
     idx_atual = idx_selecionado
+
+    if st.session_state["scroll_top"]:
+        st.session_state["scroll_top"] = False
+        components.html(SCROLL_JS, height=0)
 
     st.markdown(
         f"<h1 style='color:#f8fafc; font-weight: 600;'>{titulo_real}</h1>",
