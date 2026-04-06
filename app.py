@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 import re
 import json
 
@@ -93,6 +94,16 @@ total_passos = len(passos)
 # Estado de navegação — usa índice inteiro para evitar conflito com o widget radio
 if "pagina_idx" not in st.session_state:
     st.session_state["pagina_idx"] = 0
+if "scroll_top" not in st.session_state:
+    st.session_state["scroll_top"] = False
+
+# Scroll para o topo sempre que navegarmos via botão
+if st.session_state["scroll_top"]:
+    st.session_state["scroll_top"] = False
+    components.html(
+        "<script>window.parent.document.querySelector('.main').scrollTo({top:0,behavior:'instant'});</script>",
+        height=0
+    )
 
 escolha_raw = st.sidebar.radio(
     "Navegação do Treinamento:",
@@ -137,6 +148,7 @@ if escolha_raw == "🏠 Introdução":
     st.markdown("<br>", unsafe_allow_html=True)
     if st.button("🚀 Começar — Ir para o Passo 1", type="primary", use_container_width=True):
         st.session_state["pagina_idx"] = 1
+        st.session_state["scroll_top"] = True
         st.rerun()
 
 
@@ -178,6 +190,7 @@ else:
             label_prev = opcoes_menu[idx_atual - 1][2:].strip()
             if st.button(f"⬅️ {label_prev[:28]}", use_container_width=True):
                 st.session_state["pagina_idx"] = idx_atual - 1
+                st.session_state["scroll_top"] = True
                 st.rerun()
 
     with col_next:
@@ -186,4 +199,5 @@ else:
             label_next = opcoes_menu[proximo_idx][2:].strip()
             if st.button(f"➡️ {label_next[:28]}", type="primary", use_container_width=True):
                 st.session_state["pagina_idx"] = proximo_idx
+                st.session_state["scroll_top"] = True
                 st.rerun()
